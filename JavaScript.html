@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScript</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.nav{
+			/*background-color: black;*/
+			display: flex;
+			align-items: center;
+			position: sticky;
+			top: 0px;
+		}
+		.nav::before{
+		content: "";
+		background-color: black;
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+		opacity: 0.5;
+		}
+
+		.nav ul{
+			margin-top: 10px;
+		}
+
+		.nav li{
+			list-style: none;
+			margin: 6px 6px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			color: white;
+		}
+		.nav li a{
+			color: white;
+			text-decoration: none;
+		}
+		.nav li a:hover{
+			background-color: black;
+			color: yellow;
+		}
+		#btn{
+			background-color: lightblue;
+			color: red;
+			padding: 10px 13px;
+			border-radius: 7px;
+			cursor: pointer;
+			font-family: sans-serif;
+		}
+		#btn:hover{
+			background-color: limegreen;
+			color: blue;
+			transition-property: background-color, color;
+			transition-duration: 3s;
+		}
+		#time{
+			background-color: black;
+			color: red;
+			display: block;
+			padding: 15px 5px;
+			margin: 15px 5px;
+			text-align: center;
+			font-size: 25px;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul class="nav">
+			<li>Home</a></li>
+			<li>About us</li>
+			<li>Contact</li>
+		</ul>
+	</nav>
+
+	<div class="container">
+		Current Time is: <span id="time"></span>
+		<div>
+			<button id="btn" onclick="showHide()">Hide/Show</button>	
+		</div>
+		
+	</div>
+
+	<script>
+		// function greetings_panda() {
+		// 	console.log("Greetings Taha Bhai!");
+		// }
+		// // setTimeout(greetings_panda, 3000);
+		// interval = setInterval(greetings_panda, 2000);
+		// clearInterval(interval);
+		function displayTime() {
+			time = new Date();
+			console.log(time);
+			document.getElementById('time').innerHTML = time;
+		}
+		setInterval(displayTime, 1000);
+
+		function showHide() {
+			let btn = document.getElementById('btn');
+			let time = document.getElementById('time');
+			if (time.style.display != 'none') {
+				time.style.display = 'none';
+			}
+			else{
+				time.style.display = 'block';
+			}
+		}
+	</script>
+</body>
+</html>
